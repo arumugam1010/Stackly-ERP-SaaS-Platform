@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard | Stackly ERP</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="dashboard-layout">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#dashboard" class="logo">
+                    <div class="logo-icon" style="width: 160px; height: 40px; background: url('assets/logo-stackly.png') left center / contain no-repeat transparent; box-shadow: none; border-radius: 0;"></div>
+                </a>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="menu-label">Main Navigation</div>
+                <ul class="sidebar-menu">
+                    <li class="menu-item">
+                        <a href="#dashboard" class="menu-link active">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#team-performance" class="menu-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            Team Performance
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#project-tracking" class="menu-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                            Project Tracking
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#approvals" class="menu-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Approvals
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#department-budget" class="menu-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            Department Budget
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#analytics" class="menu-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                            Analytics
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar"></div>
+                    <div class="user-info">
+                        <h4>Manager User</h4>
+                        <p>manager@stackly.com</p>
+                    </div>
+                </div>
+                <a href="login.html" class="btn btn-outline mobile-logout-btn" style="padding: 0.5rem; font-size: 0.85rem;" onclick="localStorage.removeItem('isLoggedIn'); localStorage.removeItem('userRole');">Log Out</a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Topbar -->
+            <header class="topbar">
+                                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <div class="search-container">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-muted);"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <input type="text" placeholder="Search POs, Employees, Invoices...">
+                </div>
+                
+                <div class="topbar-actions">
+                    <button class="icon-btn" onclick="window.location.href='404.html'">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                        <div class="badge-dot"></div>
+                    </button>
+                    <a href="login.html" class="btn btn-outline" style="padding: 0.25rem 0.75rem; font-size: 0.85rem;" onclick="localStorage.removeItem('isLoggedIn'); localStorage.removeItem('userRole');">Log Out</a>
+                </div>
+                <a href="#dashboard" class="logo mobile-topbar-logo" style="font-size: 1.15rem;">
+                    <div class="logo-icon" style="width: 180px; height: 46px;">S</div>
+                </a>
+            </header>
+            
+            <!-- Dashboard Body -->
+            <div class="dashboard-body">
+                <div id="dashboard" class="content-section active-section">
+                
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1>Overview</h1>
+                        <p class="text-muted">Welcome back, Manager! Here's what's happening today.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;" onclick="window.location.href='404.html'">+ New Transaction</button>
+                    </div>
+                </div>
+                
+                <!-- Stat Cards -->
+                <div class="stat-cards">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Total Revenue</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
+                        <div class="stat-value">$124,563.00</div>
+                        <div class="stat-trend trend-up">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+                            12.5% vs last month
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Total Expenses</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                        </div>
+                        <div class="stat-value">$42,150.00</div>
+                        <div class="stat-trend trend-down">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                            2.1% vs last month
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Active Employees</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div class="stat-value">854</div>
+                        <div class="stat-trend trend-up">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+                            +12 new hires
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Pending Invoices</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        </div>
+                        <div class="stat-value">24</div>
+                        <div class="stat-trend" style="color: var(--text-muted);">
+                            Requires approval
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Charts Row -->
+                <div class="dashboard-row">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Revenue & Expenses</h3>
+                            <select style="background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); padding: 0.25rem; border-radius: var(--radius-sm); outline:none;">
+                                <option>This Year</option>
+                                <option>Last Year</option>
+                            </select>
+                        </div>
+                        <div style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 0.5rem;">
+                            <div style="height: 300px; min-width: 600px;">
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Activity Timeline</h3>
+                        </div>
+                        <div class="timeline-widget">
+                            <div class="activity-item">
+                                <div class="activity-dot"></div>
+                                <div class="activity-content">
+                                    <p>Invoice #INV-4022 Paid</p>
+                                    <span class="activity-time">10 mins ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-dot" style="border-color: #8B5CF6;"></div>
+                                <div class="activity-content">
+                                    <p>New employee onboarded (Sales)</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-dot" style="border-color: #F59E0B;"></div>
+                                <div class="activity-content">
+                                    <p>Inventory alert: Widget A low</p>
+                                    <span class="activity-time">4 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-dot"></div>
+                                <div class="activity-content">
+                                    <p>System backup completed</p>
+                                    <span class="activity-time">1 day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Table Row -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3 class="panel-title">Recent Transactions</h3>
+                        <a href="#" style="color: var(--primary); font-size: 0.9rem; text-decoration: none;">View All</a>
+                    </div>
+                    <div class="table-responsive">
+<table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Transaction ID</th>
+                                <th>Client / Vendor</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-family: monospace;">TRX-9982</td>
+                                <td>Acme Corp</td>
+                                <td>Oct 12, 2026</td>
+                                <td>$4,200.00</td>
+                                <td><span class="status-badge status-completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: monospace;">TRX-9983</td>
+                                <td>GlobalTech</td>
+                                <td>Oct 12, 2026</td>
+                                <td>$1,150.50</td>
+                                <td><span class="status-badge status-completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: monospace;">TRX-9984</td>
+                                <td>Nexus Industries</td>
+                                <td>Oct 11, 2026</td>
+                                <td>$8,900.00</td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: monospace;">TRX-9985</td>
+                                <td>AWS Cloud</td>
+                                <td>Oct 10, 2026</td>
+                                <td style="color: #EF4444;">-$3,450.00</td>
+                                <td><span class="status-badge status-completed">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+</div>
+                </div>
+
+            
+                </div>
+
+                <div id="team-performance" class="content-section">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>Team Performance</h1>
+                            <p class="text-muted">Manage your team performance settings and data here.</p>
+                        </div>
+                    </div>
+                    
+            <div class="panel">
+                <div class="panel-header"><h3 class="panel-title">Sales Team Metrics</h3></div>
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: var(--text-main);">John Doe (Q3 Target)</span>
+                            <span style="color: var(--text-muted);">92%</span>
+                        </div>
+                        <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                            <div style="width: 92%; height: 100%; background: var(--primary);"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: var(--text-main);">Jane Smith (Q3 Target)</span>
+                            <span style="color: var(--text-muted);">115%</span>
+                        </div>
+                        <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                            <div style="width: 100%; height: 100%; background: var(--secondary);"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: var(--text-main);">Mike Johnson (Q3 Target)</span>
+                            <span style="color: var(--text-muted);">78%</span>
+                        </div>
+                        <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                            <div style="width: 78%; height: 100%; background: #F59E0B;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel" style="margin-top: 1.5rem;">
+                <div class="panel-header"><h3 class="panel-title">Recent Feedback</h3></div>
+                <div class="timeline-widget">
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-content">
+                            <p><strong>Jane Smith</strong> achieved Top Seller badge for September.</p>
+                            <span class="activity-time">Oct 2, 2026</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot" style="border-color: #F59E0B;"></div>
+                        <div class="activity-content">
+                            <p>Monthly 1-on-1 completed with <strong>Mike Johnson</strong>.</p>
+                            <span class="activity-time">Sep 28, 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+                </div>
+
+                <div id="project-tracking" class="content-section">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>Project Tracking</h1>
+                            <p class="text-muted">Manage your project tracking settings and data here.</p>
+                        </div>
+                    </div>
+                    
+            <div class="panel">
+                <div class="panel-header">
+                    <h3 class="panel-title">Active Projects</h3>
+                    <button class="btn btn-primary" style="padding: 0.25rem 0.75rem; font-size: 0.85rem;">+ New Project</button>
+                </div>
+                <div class="table-responsive">
+<table class="data-table">
+                    <thead><tr><th>Project Name</th><th>Client</th><th>Deadline</th><th>Status</th><th>Progress</th></tr></thead>
+                    <tbody>
+                        <tr><td>ERP Migration</td><td>Acme Corp</td><td>Nov 15, 2026</td><td><span class="status-badge status-pending">In Progress</span></td><td>65%</td></tr>
+                        <tr><td>Website Redesign</td><td>GlobalTech</td><td>Oct 30, 2026</td><td><span class="status-badge status-pending">In Progress</span></td><td>85%</td></tr>
+                        <tr><td>Q4 Marketing Campaign</td><td>Internal</td><td>Dec 1, 2026</td><td><span class="status-badge" style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);">Not Started</span></td><td>0%</td></tr>
+                        <tr><td>Mobile App Launch</td><td>Nexus Ind.</td><td>Oct 10, 2026</td><td><span class="status-badge status-completed">Completed</span></td><td>100%</td></tr>
+                    </tbody>
+                </table>
+</div>
+            </div>
+        
+                </div>
+
+                <div id="approvals" class="content-section">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>Approvals</h1>
+                            <p class="text-muted">Manage your approvals settings and data here.</p>
+                        </div>
+                    </div>
+                    
+            <div class="panel">
+                <div class="panel-header"><h3 class="panel-title">Pending Approvals</h3></div>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: rgba(255,255,255,0.02);">
+                        <div>
+                            <strong style="color: var(--text-main); display: block;">Leave Request: John Doe</strong>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">Oct 15 - Oct 18 (Annual Leave)</span>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.25rem 0.75rem; font-size: 0.85rem;">Approve</button>
+                            <button class="btn btn-outline" style="padding: 0.25rem 0.75rem; font-size: 0.85rem; border-color: #EF4444; color: #EF4444;">Reject</button>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: rgba(255,255,255,0.02);">
+                        <div>
+                            <strong style="color: var(--text-main); display: block;">Expense Claim: Jane Smith</strong>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">$125.50 - Client Lunch</span>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.25rem 0.75rem; font-size: 0.85rem;">Approve</button>
+                            <button class="btn btn-outline" style="padding: 0.25rem 0.75rem; font-size: 0.85rem; border-color: #EF4444; color: #EF4444;">Reject</button>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: rgba(255,255,255,0.02);">
+                        <div>
+                            <strong style="color: var(--text-main); display: block;">Hardware Request: Mike Johnson</strong>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">New Monitor (approx $300)</span>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.25rem 0.75rem; font-size: 0.85rem;">Approve</button>
+                            <button class="btn btn-outline" style="padding: 0.25rem 0.75rem; font-size: 0.85rem; border-color: #EF4444; color: #EF4444;">Reject</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+                </div>
+
+                <div id="department-budget" class="content-section">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>Department Budget</h1>
+                            <p class="text-muted">Manage your department budget settings and data here.</p>
+                        </div>
+                    </div>
+                    
+            <div class="stat-cards" style="margin-bottom: 1.5rem;">
+                <div class="stat-card">
+                    <div class="stat-header"><span>Allocated Budget</span></div>
+                    <div class="stat-value">$150,000</div>
+                    <div class="stat-trend" style="color: var(--text-muted);">Q3 2026</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header"><span>Spent YTD</span></div>
+                    <div class="stat-value">$85,400</div>
+                    <div class="stat-trend trend-down">57% utilized</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header"><span>Remaining</span></div>
+                    <div class="stat-value">$64,600</div>
+                    <div class="stat-trend trend-up">On Track</div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-header"><h3 class="panel-title">Recent Department Expenses</h3></div>
+                <div class="table-responsive">
+<table class="data-table">
+                    <thead><tr><th>Category</th><th>Description</th><th>Amount</th><th>Date</th></tr></thead>
+                    <tbody>
+                        <tr><td>Software</td><td>Annual Adobe CC License</td><td>$2,400.00</td><td>Oct 5, 2026</td></tr>
+                        <tr><td>Travel</td><td>Conference Flights (Team of 3)</td><td>$1,850.00</td><td>Oct 2, 2026</td></tr>
+                        <tr><td>Office Supplies</td><td>New Chairs</td><td>$1,200.00</td><td>Sep 25, 2026</td></tr>
+                        <tr><td>Team Building</td><td>Quarterly Dinner</td><td>$450.00</td><td>Sep 20, 2026</td></tr>
+                    </tbody>
+                </table>
+</div>
+            </div>
+        
+                </div>
+
+                <div id="analytics" class="content-section">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>Analytics</h1>
+                            <p class="text-muted">Manage your analytics settings and data here.</p>
+                        </div>
+                    </div>
+                    
+            <div class="dashboard-row">
+                <div class="panel">
+                    <div class="panel-header"><h3 class="panel-title">Productivity Score</h3></div>
+                    <div style="height: 250px; display: flex; align-items:flex-end; gap: 1rem; padding-top: 2rem;">
+                        <div style="flex:1; background:var(--primary); height: 60%; border-radius: 4px 4px 0 0;"></div>
+                        <div style="flex:1; background:var(--secondary); height: 80%; border-radius: 4px 4px 0 0;"></div>
+                        <div style="flex:1; background:var(--primary); height: 75%; border-radius: 4px 4px 0 0;"></div>
+                        <div style="flex:1; background:var(--secondary); height: 95%; border-radius: 4px 4px 0 0;"></div>
+                        <div style="flex:1; background:var(--primary); height: 90%; border-radius: 4px 4px 0 0;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 1rem; color: var(--text-muted); font-size: 0.8rem;">
+                        <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-header"><h3 class="panel-title">Key Insights</h3></div>
+                    <ul style="color: var(--text-main); font-size: 0.95rem; line-height: 1.8; margin-left: 1rem;">
+                        <li>Team efficiency improved by <strong style="color:var(--primary)">12%</strong> this week.</li>
+                        <li>Project completions are <strong style="color:var(--primary)">on track</strong> for Q3 targets.</li>
+                        <li>Average response time dropped to <strong style="color:var(--secondary)">1.2 hours</strong>.</li>
+                        <li>Overtime hours have <strong style="color:#EF4444">increased</strong> by 5% this month.</li>
+                    </ul>
+                </div>
+            </div>
+        
+                </div>
+</div>
+        </main>
+        
+    </div>
+
+    <script>
+        // Initialize Chart.js
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('revenueChart').getContext('2d');
+            
+            // Gradient for Revenue
+            const gradientPrimary = ctx.createLinearGradient(0, 0, 0, 300);
+            gradientPrimary.addColorStop(0, 'rgba(16, 185, 129, 0.5)');
+            gradientPrimary.addColorStop(1, 'rgba(16, 185, 129, 0.0)');
+            
+            // Gradient for Expenses
+            const gradientSecondary = ctx.createLinearGradient(0, 0, 0, 300);
+            gradientSecondary.addColorStop(0, 'rgba(239, 68, 68, 0.3)');
+            gradientSecondary.addColorStop(1, 'rgba(239, 68, 68, 0.0)');
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                    datasets: [
+                        {
+                            label: 'Revenue',
+                            data: [65000, 72000, 68000, 85000, 92000, 88000, 105000, 110000, 115000, 124563],
+                            borderColor: '#10B981',
+                            backgroundColor: gradientPrimary,
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Expenses',
+                            data: [40000, 42000, 41000, 46000, 48000, 45000, 52000, 51000, 53000, 42150],
+                            borderColor: '#EF4444',
+                            backgroundColor: gradientSecondary,
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#9CA3AF' }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255,255,255,0.05)', drawBorder: false },
+                            ticks: { color: '#9CA3AF' }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255,255,255,0.05)', drawBorder: false },
+                            ticks: { 
+                                color: '#9CA3AF',
+                                callback: function(value) {
+                                    return '$' + value / 1000 + 'k';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="js/auth.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuLinks = document.querySelectorAll('.menu-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            
+            // Handle URL hash on load
+            function handleHashChange() {
+                const hash = window.location.hash || '#dashboard';
+                
+                // Update active link
+                menuLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if(link.getAttribute('href') === hash) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Show corresponding section
+                contentSections.forEach(section => {
+                    section.classList.remove('active-section');
+                });
+                
+                const targetSection = document.querySelector(hash);
+                if(targetSection) {
+                    targetSection.classList.add('active-section');
+                } else {
+                    // Fallback to dashboard
+                    document.getElementById('dashboard').classList.add('active-section');
+                }
+            }
+            
+            window.addEventListener('hashchange', handleHashChange);
+            
+            // Override link clicks
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        // Let hashchange event handle the UI update
+                        // (Browser natively updates URL and fires event)
+                    }
+                });
+            });
+            
+            
+            // Handle clicks on buttons/links inside dashboard body
+            const dashboardBody = document.querySelector('.dashboard-body');
+            if(dashboardBody) {
+                dashboardBody.addEventListener('click', function(e) {
+                    const target = e.target.closest('button, a');
+                    if (target) {
+                        e.preventDefault();
+                        window.location.href = '404.html';
+                    }
+                });
+            }
+
+            
+            // Mobile Sidebar Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const sidebar = document.querySelector('.sidebar');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+            
+            if(mobileMenuBtn && sidebar && sidebarOverlay) {
+                function toggleSidebar() {
+                    sidebar.classList.toggle('show-sidebar');
+                    sidebarOverlay.classList.toggle('show-overlay');
+                }
+                mobileMenuBtn.addEventListener('click', toggleSidebar);
+                sidebarOverlay.addEventListener('click', toggleSidebar);
+                
+                // Close sidebar when clicking a link on mobile
+                const mobileLinks = sidebar.querySelectorAll('.menu-link, .logo');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if(window.innerWidth <= 992) {
+                            toggleSidebar();
+                        }
+                    });
+                });
+            }
+
+            // Trigger once on load
+            handleHashChange();
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = localStorage.getItem('userName');
+            if (userName) {
+                // Update Welcome Message
+                const welcomeMsgs = document.querySelectorAll('.page-title .text-muted');
+                welcomeMsgs.forEach(msg => {
+                    if (msg.innerText.includes('Welcome back')) {
+                        msg.innerText = `Welcome back, ${userName}! Here\'s what\'s happening today.`;
+                    }
+                });
+                
+                // Update Sidebar Profile Name
+                const profileName = document.querySelector('.user-info h4');
+                if (profileName) {
+                    profileName.innerText = userName;
+                }
+                
+                // Update Sidebar Avatar letter
+                const avatar = document.querySelector('.avatar');
+                if (avatar) {
+                    avatar.innerText = userName.charAt(0).toUpperCase();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

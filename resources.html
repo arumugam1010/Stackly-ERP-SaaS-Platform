@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources & Blog | Stackly ERP</title>
+    <meta name="description" content="Learn best practices for enterprise operations, finance, and HR.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .resources-hero {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(10, 17, 40, 0.7), var(--bg-dark)), url('assets/img_41.webp') center/cover no-repeat;
+        }
+
+        .resource-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+        .resource-nav a {
+            color: var(--text-muted);
+            font-weight: 600;
+            padding-bottom: 1rem;
+            margin-bottom: -1rem;
+            border-bottom: 2px solid transparent;
+        }
+        .resource-nav a.active, .resource-nav a:hover {
+            color: var(--text-main);
+            border-bottom-color: var(--primary);
+        }
+
+        .featured-post {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            margin-bottom: 5rem;
+            align-items: center;
+        }
+        .featured-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+        .blog-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition-normal);
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .newsletter-box {
+            background: var(--gradient-primary);
+            border-radius: var(--radius-xl);
+            padding: 4rem;
+            text-align: center;
+            color: #fff;
+        }
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-md);
+            border: none;
+            outline: none;
+            font-family: inherit;
+        }
+
+        @media (max-width: 992px) {
+            .featured-post { grid-template-columns: 1fr; }
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .blog-grid { grid-template-columns: 1fr; }
+            .newsletter-form { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">S</div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="features.html">Features</a>
+                <a href="solutions.html">Solutions</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="resources.html" class="active">Resources</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">Log In</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <button class="mobile-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 6h16M4 18h16"/></svg>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <a href="index.html" class="logo" style="margin: 0;">
+                <div class="logo-icon">S</div>
+            </a>
+            <button class="mobile-menu-close" style="margin-bottom: 0; align-self: auto;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="features.html">Features</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="resources.html" class="active">Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="btn btn-outline text-center mt-4">Log In</a>
+            <a href="signup.html" class="btn btn-primary text-center">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- 1. Hero -->
+    <header class="resources-hero">
+        <div class="container reveal">
+            <h1 class="text-gradient">Knowledge Base</h1>
+            <p class="mx-auto mt-4" style="max-width: 600px;">Expert insights on enterprise operations, finance, and the future of work.</p>
+        </div>
+    </header>
+
+    <!-- 2. Resource Nav -->
+    <div class="container">
+        <div class="resource-nav reveal">
+            <a href="#" class="active">All</a>
+            <a href="#">Articles</a>
+            <a href="#">Guides & Ebooks</a>
+            <a href="#">Webinars</a>
+            <a href="#">Product Updates</a>
+        </div>
+    </div>
+
+    <!-- 3. Featured Post -->
+    <section class="container">
+        <div class="featured-post reveal">
+            <img src="assets/img_42.webp" alt="Future of ERP" class="featured-img">
+            <div class="p-8">
+                <span class="badge">Guide</span>
+                <h2 class="mb-4">The Autonomous Enterprise: How AI is Reshaping ERP Systems in 2026</h2>
+                <p class="mb-6 text-muted">Discover how large language models and autonomous agents are automating complex back-office workflows, reducing month-end close times by over 80%.</p>
+                <div class="flex items-center gap-4 mb-6">
+                    <img src="assets/img_43.webp" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;" alt="Elena Rostova">
+                    <div>
+                        <h4 style="margin: 0; font-size: 0.9rem;">Elena Rostova</h4>
+                        <p style="margin: 0; font-size: 0.8rem; color: var(--text-muted);">CTO, Stackly</p>
+                    </div>
+                </div>
+                <a href="404.html" class="btn btn-primary">Read Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Blog Grid -->
+    <section class="container">
+        <div class="flex justify-between items-center mb-6 reveal">
+            <h2>Latest Insights</h2>
+         
+        </div>
+        
+        <div class="blog-grid">
+            <div class="blog-card reveal">
+                <img src="assets/img_44.webp" alt="Finance">
+                <div class="blog-content">
+                    <span style="color: var(--primary); font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Finance</span>
+                    <h3 class="mt-2 mb-2" style="font-size: 1.2rem;">Navigating ASC 606 Compliance</h3>
+                    <p class="text-sm text-muted mb-4">A practical guide to automating revenue recognition for SaaS companies.</p>
+                    <a href="404.html" style="font-size: 0.9rem; font-weight: bold;">Read Article &rarr;</a>
+                </div>
+            </div>
+            <div class="blog-card reveal" style="animation-delay: 0.1s;">
+                <img src="assets/img_1.webp&w=600" alt="HR">
+                <div class="blog-content">
+                    <span style="color: var(--secondary); font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">HR & People</span>
+                    <h3 class="mt-2 mb-2" style="font-size: 1.2rem;">Managing Global Payroll Across 50+ Countries</h3>
+                    <p class="text-sm text-muted mb-4">How to handle complex tax jurisdictions and compliance automatically.</p>
+                    <a href="404.html" style="font-size: 0.9rem; font-weight: bold;">Read Article &rarr;</a>
+                </div>
+            </div>
+            <div class="blog-card reveal" style="animation-delay: 0.2s;">
+                <img src="assets/img_46.webp" alt="Product Update">
+                <div class="blog-content">
+                    <span style="color: var(--accent); font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Product Update</span>
+                    <h3 class="mt-2 mb-2" style="font-size: 1.2rem;">Stackly Release 2.4: The Analytics Update</h3>
+                    <p class="text-sm text-muted mb-4">Introducing natural language querying for all financial ledgers.</p>
+                    <a href="404.html" style="font-size: 0.9rem; font-weight: bold;">Read Article &rarr;</a>
+                </div>
+            </div>
+            <!-- More cards -->
+            <div class="blog-card reveal">
+                <img src="assets/img_22.webp&w=600" alt="Masterclass Webinar">
+                <div class="blog-content">
+                    <span style="color: var(--primary); font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Webinar</span>
+                    <h3 class="mt-2 mb-2" style="font-size: 1.2rem;">Masterclass: Migrating from Legacy SAP</h3>
+                    <p class="text-sm text-muted mb-4">Watch on-demand as our implementation experts share best practices.</p>
+                    <a href="404.html" style="font-size: 0.9rem; font-weight: bold;">Watch Video &rarr;</a>
+                </div>
+            </div>
+            <div class="blog-card reveal" style="animation-delay: 0.1s;">
+                <img src="assets/img_48.webp" alt="Supply Chain">
+                <div class="blog-content">
+                    <span style="color: var(--secondary); font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Supply Chain</span>
+                    <h3 class="mt-2 mb-2" style="font-size: 1.2rem;">Predictive Inventory Optimization</h3>
+                    <p class="text-sm text-muted mb-4">Leveraging AI to reduce holding costs while preventing stockouts.</p>
+                    <a href="404.html" style="font-size: 0.9rem; font-weight: bold;">Read Article &rarr;</a>
+                </div>
+            </div>
+            <div class="blog-card reveal" style="animation-delay: 0.2s;">
+                <img src="assets/img_23.webp&w=600" alt="CFO Playbook Ebook">
+                <div class="blog-content">
+                    <span style="color: var(--accent); font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Ebook</span>
+                    <h3 class="mt-2 mb-2" style="font-size: 1.2rem;">The CFO's Playbook for 2026</h3>
+                    <p class="text-sm text-muted mb-4">Download our comprehensive guide to modern corporate finance.</p>
+                    <a href="404.html" style="font-size: 0.9rem; font-weight: bold;">Download PDF &rarr;</a>
+                </div>
+            </div>
+        </div>
+        
+       
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">S</div>
+                    </a>
+                    <p>The premium ERP SaaS platform for modern enterprises. Streamline your operations, finance, and HR with our intelligent cloud solutions.</p>
+                    <div class="social-links" style="margin-top: 1.5rem;">
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.9 2H21l-4.7 5.1L22 14h-4.3l-3.4-4.5-4 4.5H8.3l5-5.5L8.5 2h4.5l3 4.1L18.9 2zm-3.8 10.9h1.2L10 3.3H8.7l6.4 9.6z"/></svg></a>
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="features.html">Features</a>
+                        <a href="solutions.html">Solutions</a>
+                        <a href="pricing.html">Pricing</a>
+                        <a href="resources.html">Resources</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Industries</h4>
+                    <div class="footer-links">
+                        <a href="solutions.html#retail">Retail</a>
+                        <a href="solutions.html#manufacturing">Manufacturing</a>
+                        <a href="solutions.html#healthcare">Healthcare</a>
+                        <a href="solutions.html#logistics">Logistics</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <div class="footer-links">
+                        <a href="404.html">Integrations</a>
+                        <a href="404.html">API Docs</a>
+                        <a href="404.html">Changelog</a>
+                        <a href="404.html">System Status</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Legal</h4>
+                    <div class="footer-links">
+                        <a href="404.html">Privacy Policy</a>
+                        <a href="404.html">Terms of Service</a>
+                        <a href="404.html">Security</a>
+                        <a href="404.html">Cookies</a>
+                    </div>
+                    <h4 class="footer-heading" style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Subscribe</h4>
+                    <div style="display: flex;">
+                        <input type="email" placeholder="Email address" style="padding: 0.5rem; border-radius: 4px 0 0 4px; border: none; outline: none; width: 100%; color: #333; background: #fff; font-size: 0.9rem;">
+                        <button onclick="window.location.href='404.html'" style="padding: 0.5rem 0.75rem; background: var(--primary); border: none; border-radius: 0 4px 4px 0; color: #fff; cursor: pointer; font-weight: 600;">Go</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly ERP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

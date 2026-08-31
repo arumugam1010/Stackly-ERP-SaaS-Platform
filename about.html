@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Stackly ERP</title>
+    <meta name="description" content="Learn about Stackly's mission to revolutionize enterprise software.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-header {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(10, 17, 40, 0.7), var(--bg-dark)), url('assets/img_1.webp') center/cover no-repeat;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--border-color);
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+            padding-right: 3rem;
+        }
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+            padding-right: 0;
+            padding-left: 3rem;
+        }
+        .timeline-dot {
+            position: absolute;
+            right: -8px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: auto;
+            left: -8px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .team-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            text-align: center;
+        }
+        .team-card img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: var(--transition-normal);
+        }
+        .team-card:hover img {
+            filter: grayscale(0%);
+        }
+        
+        @media (max-width: 992px) {
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .timeline::before { left: 0; }
+            .timeline-item { width: 100%; padding-left: 2rem; padding-right: 0; margin-left: 0; }
+            .timeline-dot { left: -8px !important; right: auto !important; }
+        }
+        @media (max-width: 768px) {
+            .team-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Blobs -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">S</div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="features.html">Features</a>
+                <a href="solutions.html">Solutions</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">Log In</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <button class="mobile-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 6h16M4 18h16"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <a href="index.html" class="logo" style="margin: 0;">
+                <div class="logo-icon">S</div>
+            </a>
+            <button class="mobile-menu-close" style="margin-bottom: 0; align-self: auto;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="features.html">Features</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="btn btn-outline text-center mt-4">Log In</a>
+            <a href="signup.html" class="btn btn-primary text-center">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- 1. Header Section -->
+    <header class="page-header">
+        <div class="container reveal">
+            <h1 class="text-gradient">Redefining Enterprise Software</h1>
+            <p class="mx-auto mt-4" style="max-width: 700px;">We believe that enterprise software doesn't have to be clunky, fragmented, and hard to use. We built Stackly to prove it.</p>
+        </div>
+    </header>
+
+    <!-- 2. Mission & Vision -->
+    <section class="section container">
+        <div class="grid grid-cols-2 gap-8">
+            <div class="glass-panel reveal">
+                <img src="assets/img_2.webp" style="width: 100%; height: 250px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 1.5rem;" alt="Mission">
+                <div style="width: 50px; height: 50px; border-radius: 12px; background: rgba(16,185,129,0.1); display: flex; align-items: center; justify-content: center; color: var(--primary); margin-bottom: 1.5rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3 class="mb-4">Our Mission</h3>
+                <p>To provide global enterprises with a unified, intelligent, and beautifully designed operating system that removes friction and accelerates growth.</p>
+            </div>
+            <div class="glass-panel reveal">
+                <img src="assets/img_3.webp" style="width: 100%; height: 250px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 1.5rem;" alt="Vision">
+                <div style="width: 50px; height: 50px; border-radius: 12px; background: rgba(6,182,212,0.1); display: flex; align-items: center; justify-content: center; color: var(--secondary); margin-bottom: 1.5rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
+                </div>
+                <h3 class="mb-4">Our Vision</h3>
+                <p>A world where complex business operations are completely invisible, managed entirely by autonomous AI agents within a single, secure platform.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Our ERP Philosophy -->
+    <section class="section container text-center">
+        <div class="reveal mb-8">
+            <h2 class="text-gradient">The Stackly Philosophy</h2>
+            <p class="mx-auto" style="max-width: 600px;">Three core tenets guide every feature we build.</p>
+        </div>
+        <div class="grid grid-cols-3 gap-4">
+            <div class="reveal">
+                <img src="assets/img_4.webp" class="hover-zoom" style="width: 100%; height: 180px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 1.5rem;" alt="Design">
+                <h4 class="mb-2 text-gradient-primary">Design First</h4>
+                <p class="text-sm">If it's not a joy to use, we don't ship it. Good design is good business.</p>
+            </div>
+            <div class="reveal">
+                <img src="assets/img_5.webp" class="hover-zoom" style="width: 100%; height: 180px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 1.5rem;" alt="Integration">
+                <h4 class="mb-2 text-gradient-primary">Zero Silos</h4>
+                <p class="text-sm">Finance, HR, and Ops must share the exact same database. Period.</p>
+            </div>
+            <div class="reveal">
+                <img src="assets/img_6.webp" class="hover-zoom" style="width: 100%; height: 180px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 1.5rem;" alt="AI">
+                <h4 class="mb-2 text-gradient-primary">AI Native</h4>
+                <p class="text-sm">Automation isn't an add-on. It's built into the core engine from day one.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Story / Timeline -->
+    <section class="section container border-t mt-8">
+        <div class="text-center mb-8 reveal">
+            <h2>Our Journey</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item reveal reveal-left">
+                <div class="timeline-dot"></div>
+                <h4 class="text-gradient-primary">2021</h4>
+                <h3>The Inception</h3>
+                <p>Founded by ex-fintech engineers frustrated by legacy ERP systems. Seed round of $12M secured.</p>
+            </div>
+            <div class="timeline-item reveal reveal-right">
+                <div class="timeline-dot"></div>
+                <h4 class="text-gradient-primary">2023</h4>
+                <h3>Series A & Global Expansion</h3>
+                <p>Launched V1. Expanded to Europe and Asia. Surpassed 1,000 enterprise customers.</p>
+            </div>
+            <div class="timeline-item reveal reveal-left">
+                <div class="timeline-dot"></div>
+                <h4 class="text-gradient-primary">2025</h4>
+                <h3>The AI Evolution</h3>
+                <p>Introduced Stackly Copilot. Reached $100M ARR. Named a Leader in the Gartner Magic Quadrant.</p>
+            </div>
+            <div class="timeline-item reveal reveal-right">
+                <div class="timeline-dot"></div>
+                <h4 class="text-gradient-primary">2026</h4>
+                <h3>Stackly 2.0</h3>
+                <p>Launch of our entirely rewritten, fully autonomous ERP engine.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Leadership Team -->
+    <section class="section container">
+        <div class="text-center mb-8 reveal">
+            <h2>The Leadership Team</h2>
+            <p>Guided by industry veterans.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card reveal">
+                <img src="assets/img_7.webp" alt="CEO">
+                <div class="p-6">
+                    <h4 class="mb-1">Marcus Thorne</h4>
+                    <p class="text-sm text-gradient-primary">CEO & Founder</p>
+                </div>
+            </div>
+            <div class="team-card reveal">
+                <img src="assets/img_8.webp" alt="CTO">
+                <div class="p-6">
+                    <h4 class="mb-1">Elena Rostova</h4>
+                    <p class="text-sm text-gradient-primary">Chief Technology Officer</p>
+                </div>
+            </div>
+            <div class="team-card reveal">
+                <img src="assets/img_9.webp" alt="CFO">
+                <div class="p-6">
+                    <h4 class="mb-1">David Kim</h4>
+                    <p class="text-sm text-gradient-primary">Chief Financial Officer</p>
+                </div>
+            </div>
+            <div class="team-card reveal">
+                <img src="assets/img_10.webp" alt="COO">
+                <div class="p-6">
+                    <h4 class="mb-1">Sarah Jenkins</h4>
+                    <p class="text-sm text-gradient-primary">Chief Operating Officer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Global Presence Map -->
+    <section class="section container border-t text-center">
+        <div class="reveal mb-8">
+            <h2>Global Presence</h2>
+            <p>5 Offices. 150+ Countries supported.</p>
+        </div>
+        <div class="glass-panel reveal" style="position: relative; height: 400px; overflow: hidden; background: url('assets/img_11.webp') center/cover; border-radius: var(--radius-xl);">
+            <div style="position: absolute; inset: 0; background: rgba(7, 11, 20, 0.8);"></div>
+            <div style="position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; height: 100%; align-items: center; gap: 2rem;">
+                <div class="flex gap-4 flex-wrap justify-center">
+                    <div class="badge">San Francisco (HQ)</div>
+                    <div class="badge">London</div>
+                    <div class="badge">Singapore</div>
+                    <div class="badge">Sydney</div>
+                    <div class="badge">Toronto</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. By the Numbers -->
+    <section class="section container">
+        <div class="grid grid-cols-4 gap-4 text-center">
+            <div class="reveal">
+                <h3 class="text-gradient-primary">850+</h3>
+                <p class="text-sm">Global Employees</p>
+            </div>
+            <div class="reveal">
+                <h3 class="text-gradient-primary">$250M</h3>
+                <p class="text-sm">Funding Raised</p>
+            </div>
+            <div class="reveal">
+                <h3 class="text-gradient-primary">10k+</h3>
+                <p class="text-sm">Active Customers</p>
+            </div>
+            <div class="reveal">
+                <h3 class="text-gradient-primary">99%</h3>
+                <p class="text-sm">Retention Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Technology Approach -->
+    <section class="section container">
+        <div class="glass-panel reveal flex gap-8 items-center flex-wrap">
+            <div style="flex: 1; min-width: 250px;">
+                <h2 class="mb-4">Built on Modern Primitives</h2>
+                <p>We abandoned monolithic architectures. Stackly is built on a distributed microservices mesh using Rust and Go, ensuring sub-millisecond response times even when processing millions of ledger entries.</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem;">
+                <div class="p-4" style="background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); text-align: center;">Distributed Ledger</div>
+                <div class="p-4" style="background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); text-align: center;">Event Sourcing</div>
+                <div class="p-4" style="background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); text-align: center;">GraphQL API</div>
+                <div class="p-4" style="background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); text-align: center;">Vector Database</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Security Commitment -->
+    <section class="section container text-center">
+        <div class="reveal mb-8">
+            <h2>Our Commitment to Security</h2>
+            <p class="mx-auto" style="max-width: 600px;">Trust is earned. We undergo rigorous third-party audits quarterly.</p>
+        </div>
+        <div class="flex justify-center gap-4 reveal flex-wrap">
+            <div class="glass-panel" style="padding: 1rem 2rem;">SOC 2 Type II</div>
+            <div class="glass-panel" style="padding: 1rem 2rem;">ISO 27001</div>
+            <div class="glass-panel" style="padding: 1rem 2rem;">GDPR Compliant</div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">S</div>
+                    </a>
+                    <p>The premium ERP SaaS platform for modern enterprises. Streamline your operations, finance, and HR with our intelligent cloud solutions.</p>
+                    <div class="social-links" style="margin-top: 1.5rem;">
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.9 2H21l-4.7 5.1L22 14h-4.3l-3.4-4.5-4 4.5H8.3l5-5.5L8.5 2h4.5l3 4.1L18.9 2zm-3.8 10.9h1.2L10 3.3H8.7l6.4 9.6z"/></svg></a>
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="features.html">Features</a>
+                        <a href="solutions.html">Solutions</a>
+                        <a href="pricing.html">Pricing</a>
+                        <a href="resources.html">Resources</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Industries</h4>
+                    <div class="footer-links">
+                        <a href="solutions.html#retail">Retail</a>
+                        <a href="solutions.html#manufacturing">Manufacturing</a>
+                        <a href="solutions.html#healthcare">Healthcare</a>
+                        <a href="solutions.html#logistics">Logistics</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <div class="footer-links">
+                        <a href="404.html">Integrations</a>
+                        <a href="404.html">API Docs</a>
+                        <a href="404.html">Changelog</a>
+                        <a href="404.html">System Status</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Legal</h4>
+                    <div class="footer-links">
+                        <a href="404.html">Privacy Policy</a>
+                        <a href="404.html">Terms of Service</a>
+                        <a href="404.html">Security</a>
+                        <a href="404.html">Cookies</a>
+                    </div>
+                    <h4 class="footer-heading" style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Subscribe</h4>
+                    <div style="display: flex;">
+                        <input type="email" placeholder="Email address" style="padding: 0.5rem; border-radius: 4px 0 0 4px; border: none; outline: none; width: 100%; color: #333; background: #fff; font-size: 0.9rem;">
+                        <button onclick="window.location.href='404.html'" style="padding: 0.5rem 0.75rem; background: var(--primary); border: none; border-radius: 0 4px 4px 0; color: #fff; cursor: pointer; font-weight: 600;">Go</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly ERP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

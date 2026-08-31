@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | Stackly ERP</title>
+    <meta name="description" content="Transparent pricing for the Stackly ERP platform.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .pricing-hero {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(10, 17, 40, 0.7), var(--bg-dark)), url('assets/img_23.webp') center/cover no-repeat;
+        }
+        
+        .toggle-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 32px;
+            background: var(--bg-card);
+            border-radius: 20px;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+        }
+        .toggle-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(28px);
+        }
+        .save-badge {
+            background: rgba(16,185,129,0.2);
+            color: var(--primary);
+            font-size: 0.8rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+        }
+        
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 1.5rem;
+            position: relative;
+            transition: var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+        }
+        .pricing-card.popular {
+            background: var(--bg-glass);
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(16,185,129,0.1);
+        }
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-primary);
+            color: #fff;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 1.5rem 0 0.5rem;
+        }
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+        .feature-list li {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            display: flex;
+            gap: 0.5rem;
+            color: var(--text-main);
+        }
+        .feature-list li.disabled {
+            color: var(--text-dark);
+            text-decoration: line-through;
+        }
+        
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            margin-bottom: 5rem;
+        }
+        .comparison-table {
+            width: 100%;
+            min-width: 800px;
+            border-collapse: collapse;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .comparison-table th {
+            font-weight: 600;
+            background: rgba(255,255,255,0.02);
+        }
+        
+        @media (max-width: 1200px) {
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+            .pricing-card.popular { transform: none; }
+        }
+        @media (max-width: 768px) {
+            .pricing-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">S</div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="features.html">Features</a>
+                <a href="solutions.html">Solutions</a>
+                <a href="pricing.html" class="active">Pricing</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">Log In</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <button class="mobile-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 6h16M4 18h16"/></svg>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <a href="index.html" class="logo" style="margin: 0;">
+                <div class="logo-icon">S</div>
+            </a>
+            <button class="mobile-menu-close" style="margin-bottom: 0; align-self: auto;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="features.html">Features</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="pricing.html" class="active">Pricing</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="btn btn-outline text-center mt-4">Log In</a>
+            <a href="signup.html" class="btn btn-primary text-center">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- 1. Hero & Toggle -->
+    <header class="pricing-hero">
+        <div class="container reveal">
+            <h1 class="text-gradient">Simple, Transparent Pricing</h1>
+            <p class="mx-auto mt-4" style="max-width: 600px;">Pay only for the modules you need. Scale infinitely.</p>
+        </div>
+        
+        <div class="toggle-wrapper mt-8 reveal">
+            <span id="monthly-label">Monthly</span>
+            <div class="toggle-switch active" id="billing-toggle">
+                <div class="toggle-slider"></div>
+            </div>
+            <span id="yearly-label" style="color: #fff;">Yearly <span class="save-badge">Save 20%</span></span>
+        </div>
+    </header>
+
+    <!-- 2. Pricing Cards -->
+    <section class="container">
+        <div class="pricing-grid">
+            <!-- Free -->
+            <div class="pricing-card reveal">
+                <h3>Starter</h3>
+                <p class="text-sm text-muted">Perfect for small teams testing the waters.</p>
+                <div class="price" data-monthly="0" data-yearly="0">$0<span>/mo</span></div>
+                <ul class="feature-list">
+                    <li>✓ 2 User Accounts</li>
+                    <li>✓ Basic General Ledger</li>
+                    <li>✓ 100 Invoices/mo</li>
+                    <li class="disabled">Automated Payroll</li>
+                    <li class="disabled">API Access</li>
+                </ul>
+                <a href="404.html" class="btn btn-outline">Get Started Free</a>
+            </div>
+            
+            <!-- Professional -->
+            <div class="pricing-card reveal">
+                <h3>Professional</h3>
+                <p class="text-sm text-muted">For growing businesses needing more power.</p>
+                <div class="price" data-monthly="99" data-yearly="79">$79<span>/mo</span></div>
+                <ul class="feature-list">
+                    <li>✓ 10 User Accounts</li>
+                    <li>✓ Finance & CRM Modules</li>
+                    <li>✓ Unlimited Invoices</li>
+                    <li>✓ Basic API Access</li>
+                    <li class="disabled">Multi-entity Consolidation</li>
+                </ul>
+                <a href="404.html" class="btn btn-outline">Start 14-Day Trial</a>
+            </div>
+            
+            <!-- Business -->
+            <div class="pricing-card popular reveal">
+                <div class="popular-badge">Most Popular</div>
+                <h3>Business</h3>
+                <p class="text-sm text-muted">Full ERP functionality for established companies.</p>
+                <div class="price" data-monthly="299" data-yearly="239">$239<span>/mo</span></div>
+                <ul class="feature-list">
+                    <li>✓ 50 User Accounts</li>
+                    <li>✓ All Core Modules</li>
+                    <li>✓ Automated Payroll (up to 500)</li>
+                    <li>✓ Multi-entity Consolidation</li>
+                    <li>✓ 24/7 Priority Support</li>
+                </ul>
+                <a href="404.html" class="btn btn-primary w-full">Start 14-Day Trial</a>
+            </div>
+            
+            <!-- Enterprise -->
+            <div class="pricing-card reveal">
+                <h3>Enterprise</h3>
+                <p class="text-sm text-muted">Custom built for global organizations.</p>
+                <div class="price">Custom</div>
+                <ul class="feature-list">
+                    <li>✓ Unlimited Users</li>
+                    <li>✓ Custom Modules & Workflows</li>
+                    <li>✓ Dedicated Success Manager</li>
+                    <li>✓ Custom SLA (99.99%)</li>
+                    <li>✓ On-Premise Option Available</li>
+                </ul>
+                <a href="404.html" class="btn btn-outline">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Add-ons Section -->
+    <section class="section container border-t border-b">
+        <div class="text-center mb-8 reveal">
+            <h2>Optional Add-ons</h2>
+            <p>Expand your Stackly functionality as you grow.</p>
+        </div>
+        <div class="grid grid-cols-3 gap-4">
+            <div class="glass-panel reveal text-center">
+                <h4 class="mb-2">Advanced BI Suite</h4>
+                <p class="text-sm text-muted mb-4">Custom drag-and-drop dashboards and predictive analytics.</p>
+                <h3 class="text-gradient-primary">+$49/mo</h3>
+            </div>
+            <div class="glass-panel reveal text-center">
+                <h4 class="mb-2">Global Payroll Add-on</h4>
+                <p class="text-sm text-muted mb-4">Compliance and payroll execution in 150+ countries.</p>
+                <h3 class="text-gradient-primary">+$99/mo</h3>
+            </div>
+            <div class="glass-panel reveal text-center">
+                <h4 class="mb-2">Dedicated Database</h4>
+                <p class="text-sm text-muted mb-4">Your own isolated database instance for maximum security.</p>
+                <h3 class="text-gradient-primary">+$299/mo</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Detailed Feature Comparison -->
+    <section class="section container" style="padding-bottom: 2rem;">
+        <div class="text-center mb-12 reveal">
+            <h2>Compare Plans</h2>
+        </div>
+        <div class="comparison-table-wrapper reveal glass-panel" style="padding: 0; overflow: hidden;">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Starter</th>
+                        <th>Professional</th>
+                        <th>Business</th>
+                        <th>Enterprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Core Financials</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                    </tr>
+                    <tr>
+                        <td>CRM & Sales</td>
+                        <td>Basic</td>
+                        <td>Advanced</td>
+                        <td>Advanced</td>
+                        <td>Custom</td>
+                    </tr>
+                    <tr>
+                        <td>Inventory Management</td>
+                        <td>-</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                    </tr>
+                    <tr>
+                        <td>Multi-currency</td>
+                        <td>-</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                    </tr>
+                    <tr>
+                        <td>API Rate Limit</td>
+                        <td>-</td>
+                        <td>1k/hr</td>
+                        <td>10k/hr</td>
+                        <td>Unlimited</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 5. FAQ -->
+    <section class="section container border-t" style="padding-top: 4rem;">
+        <div class="text-center mb-8 reveal">
+            <h2>Pricing FAQ</h2>
+        </div>
+        <div class="grid grid-cols-2 gap-8 reveal">
+            <div class="glass-panel" style="padding: 2rem;">
+                <h4 class="mb-2">Are there any setup fees?</h4>
+                <p class="text-muted">No, there are no hidden setup fees for the Starter, Professional, or Business plans. Enterprise implementation fees vary based on complexity.</p>
+            </div>
+            <div class="glass-panel" style="padding: 2rem;">
+                <h4 class="mb-2">Can I switch plans later?</h4>
+                <p class="text-muted">Absolutely. You can upgrade or downgrade your plan at any time. Prorated charges will be applied automatically.</p>
+            </div>
+            <div class="glass-panel" style="padding: 2rem;">
+                <h4 class="mb-2">Do you offer discounts for non-profits?</h4>
+                <p class="text-muted">Yes, we offer a 30% discount for registered non-profit organizations. Contact our sales team to apply.</p>
+            </div>
+            <div class="glass-panel" style="padding: 2rem;">
+                <h4 class="mb-2">What forms of payment do you accept?</h4>
+                <p class="text-muted">We accept all major credit cards, PayPal, and ACH/Wire transfers for annual Business and Enterprise plans.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+                                <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">S</div>
+                    </a>
+                    <p>The premium ERP SaaS platform for modern enterprises. Streamline your operations, finance, and HR with our intelligent cloud solutions.</p>
+                    <div class="social-links" style="margin-top: 1.5rem;">
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.9 2H21l-4.7 5.1L22 14h-4.3l-3.4-4.5-4 4.5H8.3l5-5.5L8.5 2h4.5l3 4.1L18.9 2zm-3.8 10.9h1.2L10 3.3H8.7l6.4 9.6z"/></svg></a>
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="features.html">Features</a>
+                        <a href="solutions.html">Solutions</a>
+                        <a href="pricing.html">Pricing</a>
+                        <a href="resources.html">Resources</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Industries</h4>
+                    <div class="footer-links">
+                        <a href="solutions.html#retail">Retail</a>
+                        <a href="solutions.html#manufacturing">Manufacturing</a>
+                        <a href="solutions.html#healthcare">Healthcare</a>
+                        <a href="solutions.html#logistics">Logistics</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <div class="footer-links">
+                        <a href="404.html">Integrations</a>
+                        <a href="404.html">API Docs</a>
+                        <a href="404.html">Changelog</a>
+                        <a href="404.html">System Status</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Legal</h4>
+                    <div class="footer-links">
+                        <a href="404.html">Privacy Policy</a>
+                        <a href="404.html">Terms of Service</a>
+                        <a href="404.html">Security</a>
+                        <a href="404.html">Cookies</a>
+                    </div>
+                    <h4 class="footer-heading" style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Subscribe</h4>
+                    <div style="display: flex;">
+                        <input type="email" placeholder="Email address" style="padding: 0.5rem; border-radius: 4px 0 0 4px; border: none; outline: none; width: 100%; color: #333; background: #fff; font-size: 0.9rem;">
+                        <button onclick="window.location.href='404.html'" style="padding: 0.5rem 0.75rem; background: var(--primary); border: none; border-radius: 0 4px 4px 0; color: #fff; cursor: pointer; font-weight: 600;">Go</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly ERP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Billing Toggle Logic
+        const toggle = document.getElementById('billing-toggle');
+        const prices = document.querySelectorAll('.price[data-monthly]');
+        
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+            const isYearly = toggle.classList.contains('active');
+            
+            document.getElementById('yearly-label').style.color = isYearly ? '#fff' : 'var(--text-muted)';
+            document.getElementById('monthly-label').style.color = isYearly ? 'var(--text-muted)' : '#fff';
+            
+            prices.forEach(priceEl => {
+                const amount = isYearly ? priceEl.getAttribute('data-yearly') : priceEl.getAttribute('data-monthly');
+                priceEl.innerHTML = `$${amount}<span>/mo</span>`;
+            });
+        });
+    </script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

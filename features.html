@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features | Stackly ERP</title>
+    <meta name="description" content="Explore the comprehensive suite of Stackly ERP modules designed for global enterprises.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .feature-hero {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(10, 17, 40, 0.7), var(--bg-dark)), url('assets/img_13.webp') center/cover no-repeat;
+        }
+        
+        .module-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 4rem;
+            position: sticky;
+            top: 80px;
+            z-index: 50;
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+        }
+        .module-link {
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition-fast);
+        }
+        .module-link:hover, .module-link.active {
+            background: var(--gradient-primary);
+            color: #fff;
+        }
+
+        .feature-block {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .feature-block.reverse {
+            direction: rtl;
+        }
+        .feature-block.reverse > * {
+            direction: ltr;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .feature-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid var(--border-color);
+            color: var(--primary);
+        }
+        
+        .feature-visual-box {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            padding: 1rem;
+        }
+        .feature-visual-box img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-md);
+        }
+
+        @media (max-width: 992px) {
+            .feature-block { grid-template-columns: 1fr; }
+            .feature-block.reverse { direction: ltr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Blobs -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">S</div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="features.html" class="active">Features</a>
+                <a href="solutions.html">Solutions</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">Log In</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <button class="mobile-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 6h16M4 18h16"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <a href="index.html" class="logo" style="margin: 0;">
+                <div class="logo-icon">S</div>
+            </a>
+            <button class="mobile-menu-close" style="margin-bottom: 0; align-self: auto;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="features.html" class="active">Features</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="btn btn-outline text-center mt-4">Log In</a>
+            <a href="signup.html" class="btn btn-primary text-center">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- 1. Hero -->
+    <header class="feature-hero">
+        <div class="container reveal">
+            <h1 class="text-gradient">Every Module You Need.</h1>
+            <p class="mx-auto mt-4" style="max-width: 600px;">Explore the comprehensive suite of applications that make up the Stackly Enterprise OS.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 2. Sticky Module Navigation -->
+        <div class="module-nav reveal">
+            <a href="#finance" class="module-link active">Finance</a>
+            <a href="#hr" class="module-link">HR & Payroll</a>
+            <a href="#crm" class="module-link">CRM & Sales</a>
+            <a href="#inventory" class="module-link">Inventory</a>
+            <a href="#manufacturing" class="module-link">Manufacturing</a>
+            <a href="#projects" class="module-link">Projects</a>
+        </div>
+
+        <!-- 3. Finance & Accounting -->
+        <section id="finance" class="feature-block">
+            <div class="reveal reveal-left">
+                <span class="badge">Finance & Accounting</span>
+                <h2 class="mb-4">Real-time Financial Clarity.</h2>
+                <p>Automate your general ledger, accounts payable/receivable, and asset management. Close your books in record time with AI-assisted reconciliation.</p>
+                <ul class="feature-list">
+                    <li>
+                        <div class="feature-icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                        <div>
+                            <h4>Multi-Currency & Multi-Entity</h4>
+                            <p class="text-sm">Real-time consolidation across global subsidiaries.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/></svg></div>
+                        <div>
+                            <h4>Automated Reconciliation</h4>
+                            <p class="text-sm">Connects directly to 10,000+ global banks.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="feature-visual-box reveal reveal-right">
+                <img src="assets/img_14.webp" alt="Finance Software">
+            </div>
+        </section>
+
+        <!-- 4. HR & Payroll -->
+        <section id="hr" class="feature-block reverse">
+            <div class="reveal reveal-right">
+                <span class="badge">HR & Payroll</span>
+                <h2 class="mb-4">Global Workforce Management.</h2>
+                <p>Manage the entire employee lifecycle. From recruitment and onboarding to performance reviews and global payroll processing.</p>
+                <ul class="feature-list">
+                    <li>
+                        <div class="feature-icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                        <div>
+                            <h4>Global Payroll Engine</h4>
+                            <p class="text-sm">Compliant payroll execution in over 150 countries.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg></div>
+                        <div>
+                            <h4>Time & Attendance</h4>
+                            <p class="text-sm">Geofenced time tracking and automated PTO approvals.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="feature-visual-box reveal reveal-left">
+                <img src="assets/img_15.webp" alt="HR Platform">
+            </div>
+        </section>
+
+        <!-- 5. CRM & Sales -->
+        <section id="crm" class="feature-block">
+            <div class="reveal reveal-left">
+                <span class="badge">CRM & Sales</span>
+                <h2 class="mb-4">Accelerate Revenue.</h2>
+                <p>Track leads, manage complex pipelines, and generate quotes directly linked to your inventory and finance systems.</p>
+                <ul class="feature-list">
+                    <li>
+                        <div class="feature-icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                        <div>
+                            <h4>AI Lead Scoring</h4>
+                            <p class="text-sm">Predictive models highlight deals most likely to close.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+                        <div>
+                            <h4>Native CPQ</h4>
+                            <p class="text-sm">Configure, Price, Quote directly tied to real-time inventory.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="feature-visual-box reveal reveal-right">
+                <img src="assets/img_16.webp" alt="Sales Dashboard">
+            </div>
+        </section>
+
+        <!-- 6. Inventory & Supply Chain -->
+        <section id="inventory" class="feature-block reverse">
+            <div class="reveal reveal-right">
+                <span class="badge">Inventory</span>
+                <h2 class="mb-4">End-to-End Visibility.</h2>
+                <p>Track materials across multiple warehouses, automate purchase orders based on reorder points, and optimize your supply chain logistics.</p>
+                <ul class="feature-list">
+                    <li>
+                        <div class="feature-icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21 16-9 5-9-5V8l9-5 9 5v8z"/><path d="m3.27 6.96 8.73 4.91 8.73-4.91"/><path d="M12 22V12"/></svg></div>
+                        <div>
+                            <h4>Multi-Warehouse Routing</h4>
+                            <p class="text-sm">Intelligent order routing to minimize shipping costs.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="feature-visual-box reveal reveal-left">
+                <img src="assets/img_17.webp" alt="Warehouse">
+            </div>
+        </section>
+
+        <!-- 7. Manufacturing -->
+        <section id="manufacturing" class="feature-block">
+            <div class="reveal reveal-left">
+                <span class="badge">Manufacturing</span>
+                <h2 class="mb-4">Smart Production Control.</h2>
+                <p>Manage Bill of Materials (BOM), schedule production runs, track machine utilization, and ensure quality control throughout the assembly line.</p>
+            </div>
+            <div class="feature-visual-box reveal reveal-right">
+                <img src="assets/img_18.webp" alt="Manufacturing">
+            </div>
+        </section>
+
+        <!-- 8. Project Management -->
+        <section id="projects" class="feature-block reverse">
+            <div class="reveal reveal-right">
+                <span class="badge">Project Management</span>
+                <h2 class="mb-4">Deliver on Time & Budget.</h2>
+                <p>Track billable hours, allocate resources efficiently, and monitor project profitability in real-time. Fully integrated with HR and Invoicing.</p>
+            </div>
+            <div class="feature-visual-box reveal reveal-left">
+                <img src="assets/img_19.webp" alt="Projects">
+            </div>
+        </section>
+
+        <!-- 9. Reporting & BI -->
+        <section id="analytics" class="feature-block">
+            <div class="reveal reveal-left">
+                <span class="badge">Business Intelligence</span>
+                <h2 class="mb-4">Turn Data into Decisions.</h2>
+                <p>Create drag-and-drop dashboards. Use natural language to query your entire database. Export pixel-perfect board reports instantly.</p>
+                <div class="mt-4">
+                    <a href="404.html" class="btn btn-primary">Try Analytics Free</a>
+                </div>
+            </div>
+            <div class="feature-visual-box reveal reveal-right">
+                <img src="assets/img_20.webp" alt="Analytics Dashboard">
+            </div>
+        </section>
+
+  
+
+    </div>
+
+    <!-- Footer -->
+                                <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">S</div>
+                    </a>
+                    <p>The premium ERP SaaS platform for modern enterprises. Streamline your operations, finance, and HR with our intelligent cloud solutions.</p>
+                    <div class="social-links" style="margin-top: 1.5rem;">
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.9 2H21l-4.7 5.1L22 14h-4.3l-3.4-4.5-4 4.5H8.3l5-5.5L8.5 2h4.5l3 4.1L18.9 2zm-3.8 10.9h1.2L10 3.3H8.7l6.4 9.6z"/></svg></a>
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="404.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="features.html">Features</a>
+                        <a href="solutions.html">Solutions</a>
+                        <a href="pricing.html">Pricing</a>
+                        <a href="resources.html">Resources</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Industries</h4>
+                    <div class="footer-links">
+                        <a href="solutions.html#retail">Retail</a>
+                        <a href="solutions.html#manufacturing">Manufacturing</a>
+                        <a href="solutions.html#healthcare">Healthcare</a>
+                        <a href="solutions.html#logistics">Logistics</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <div class="footer-links">
+                        <a href="404.html">Integrations</a>
+                        <a href="404.html">API Docs</a>
+                        <a href="404.html">Changelog</a>
+                        <a href="404.html">System Status</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Legal</h4>
+                    <div class="footer-links">
+                        <a href="404.html">Privacy Policy</a>
+                        <a href="404.html">Terms of Service</a>
+                        <a href="404.html">Security</a>
+                        <a href="404.html">Cookies</a>
+                    </div>
+                    <h4 class="footer-heading" style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Subscribe</h4>
+                    <div style="display: flex;">
+                        <input type="email" placeholder="Email address" style="padding: 0.5rem; border-radius: 4px 0 0 4px; border: none; outline: none; width: 100%; color: #333; background: #fff; font-size: 0.9rem;">
+                        <button onclick="window.location.href='404.html'" style="padding: 0.5rem 0.75rem; background: var(--primary); border: none; border-radius: 0 4px 4px 0; color: #fff; cursor: pointer; font-weight: 600;">Go</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly ERP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Simple active state updater for sticky nav based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.feature-block');
+            const navLinks = document.querySelectorAll('.module-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

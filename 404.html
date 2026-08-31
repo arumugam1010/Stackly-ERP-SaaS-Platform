@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Stackly ERP</title>
+    <meta name="description" content="The page you are looking for does not exist on Stackly ERP.">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Inline styles specifically for the 404 center layout -->
+    <style>
+        .error-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .error-code {
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px var(--primary-glow);
+        }
+        .error-content {
+            max-width: 600px;
+        }
+        .error-glass {
+            padding: 4rem;
+            border-radius: var(--radius-2xl);
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Blobs -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <section class="error-section container">
+        <div class="error-glass reveal active">
+            <div class="error-code">404</div>
+            <h1 class="mb-4 text-gradient">Page Not Found</h1>
+            <p class="mb-8">We're sorry, but the page you requested cannot be found or is currently under development. Please return to the homepage or try navigating through our menu.</p>
+            
+            <div id="not-found-actions" class="flex justify-center gap-2" style="flex-wrap: wrap;">
+                <!-- Dynamically populated by js/auth.js -->
+                <a href="index.html" class="btn btn-primary">Return to Home</a>
+                <a href="login.html" class="btn btn-outline">Log In</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

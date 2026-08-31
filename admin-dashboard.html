@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Stackly ERP</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="dashboard-layout">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#dashboard" class="logo">
+                    <div class="logo-icon" style="width: 160px; height: 40px; background: url('assets/logo-stackly.png') left center / contain no-repeat transparent; box-shadow: none; border-radius: 0;"></div>
+                </a>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="menu-label">Main Navigation</div>
+                <ul class="sidebar-menu">
+                    <li class="menu-item">
+                        <a href="#dashboard" class="menu-link active">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#user-management" class="menu-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            User Management
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#finance-reports" class="menu-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            Finance & Reports
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#system-settings" class="menu-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                            System Settings
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#audit-logs" class="menu-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                            Audit Logs
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#integrations" class="menu-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Integrations
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar"></div>
+                    <div class="user-info">
+                        <h4>Admin User</h4>
+                        <p>admin@stackly.com</p>
+                    </div>
+                </div>
+                <a href="login.html" class="btn btn-outline mobile-logout-btn" style="padding: 0.5rem; font-size: 0.85rem;" onclick="localStorage.removeItem('isLoggedIn'); localStorage.removeItem('userRole');">Log Out</a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Topbar -->
+            <header class="topbar">
+                                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <div class="search-container">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-muted);"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <input type="text" placeholder="Search POs, Employees, Invoices...">
+                </div>
+                
+                <div class="topbar-actions">
+                    <button class="icon-btn" onclick="window.location.href='404.html'">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                        <div class="badge-dot"></div>
+                    </button>
+                    <a href="login.html" class="btn btn-outline" style="padding: 0.25rem 0.75rem; font-size: 0.85rem;" onclick="localStorage.removeItem('isLoggedIn'); localStorage.removeItem('userRole');">Log Out</a>
+                </div>
+                <a href="#dashboard" class="logo mobile-topbar-logo" style="font-size: 1.15rem;">
+                    <div class="logo-icon" style="width: 180px; height: 46px;">S</div>
+                </a>
+            </header>
+            
+            <!-- Dashboard Body -->
+            <div class="dashboard-body">
+                <div id="dashboard" class="content-section active-section">
+                
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1>Overview</h1>
+                        <p class="text-muted">Welcome back, Admin! Here's what's happening today.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;" onclick="window.location.href='404.html'">+ New Transaction</button>
+                    </div>
+                </div>
+                
+                <!-- Stat Cards -->
+                <div class="stat-cards">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Total Revenue</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
+                        <div class="stat-value">$124,563.00</div>
+                        <div class="stat-trend trend-up">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+                            12.5% vs last month
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Total Expenses</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                        </div>
+                        <div class="stat-value">$42,150.00</div>
+                        <div class="stat-trend trend-down">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                            2.1% vs last month
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Active Employees</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div class="stat-value">854</div>
+                        <div class="stat-trend trend-up">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+                            +12 new hires
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Pending Invoices</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        </div>
+                        <div class="stat-value">24</div>
+                        <div class="stat-trend" style="color: var(--text-muted);">
+                            Requires approval
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Charts Row -->
+                <div class="dashboard-row">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Revenue & Expenses</h3>
+                            <select style="background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); padding: 0.25rem; border-radius: var(--radius-sm); outline:none;">
+                                <option>This Year</option>
+                                <option>Last Year</option>
+                            </select>
+                        </div>
+                        <div style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 0.5rem;">
+                            <div style="height: 300px; min-width: 600px;">
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Activity Timeline</h3>
+                        </div>
+                        <div class="timeline-widget">
+                            <div class="activity-item">
+                                <div class="activity-dot"></div>
+                                <div class="activity-content">
+                                    <p>Invoice #INV-4022 Paid</p>
+                                    <span class="activity-time">10 mins ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-dot" style="border-color: #8B5CF6;"></div>
+                                <div class="activity-content">
+                                    <p>New employee onboarded (Sales)</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-dot" style="border-color: #F59E0B;"></div>
+                                <div class="activity-content">
+                                    <p>Inventory alert: Widget A low</p>
+                                    <span class="activity-time">4 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-dot"></div>
+                                <div class="activity-content">
+                                    <p>System backup completed</p>
+                                    <span class="activity-time">1 day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Table Row -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3 class="panel-title">Recent Transactions</h3>
+                        <a href="#" style="color: var(--primary); font-size: 0.9rem; text-decoration: none;">View All</a>
+                    </div>
+                    <div class="table-responsive">
+<table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Transaction ID</th>
+                                <th>Client / Vendor</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-family: monospace;">TRX-9982</td>
+                                <td>Acme Corp</td>
+                                <td>Oct 12, 2026</td>
+                                <td>$4,200.00</td>
+                                <td><span class="status-badge status-completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: monospace;">TRX-9983</td>
+                                <td>GlobalTech</td>
+                                <td>Oct 12, 2026</td>
+                                <td>$1,150.50</td>
+                                <td><span class="status-badge status-completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: monospace;">TRX-9984</td>
+                                <td>Nexus Industries</td>
+                                <td>Oct 11, 2026</td>
+                                <td>$8,900.00</td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: monospace;">TRX-9985</td>
+                                <td>AWS Cloud</td>
+                                <td>Oct 10, 2026</td>
+                                <td style="color: #EF4444;">-$3,450.00</td>
+                                <td><span class="status-badge status-completed">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+</div>
+                </div>
+
+            
+                </div>
+
+                <div id="user-management" class="content-section">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>User Management</h1>
+                            <p class="text-muted">Manage your user management settings and data here.</p>
+                        </div>
+                    </div>
+                    
+            <div class="panel">
+                <div class="panel-header">
+                    <h3 class="panel-title">Active Users</h3>
+                    <button class="btn btn-primary" style="padding: 0.25rem 0.75rem; font-size: 0.85rem;">+ Add User</button>
+                </div>
+                <div class="table-responsive">
+<table class="data-table">
+                    <thead><tr><th>Name</th><th>Role</th><th>Email</th><th>Status</th><th>Actions</th></tr></thead>
+                    <tbody>
+                        <tr><td>John Doe</td><td>Manager</td><td>john@stackly.com</td><td><span class="status-badge status-completed">Active</span></td><td><a href="#" style="color:var(--primary)">Edit</a></td></tr>
+                        <tr><td>Jane Smith</td><td>Employee</td><td>jane@stackly.com</td><td><span class="status-badge status-completed">Active</span></td><td><a href="#" style="color:var(--primary)">Edit</a></td></tr>
+                        <tr><td>Mike Johnson</td><td>Employee</td><td>mike@stackly.com</td><td><span class="status-badge status-pending">On Leave</span></td><td><a href="#" style="color:var(--primary)">Edit</a></td></tr>
+                        <tr><td>Emily Davis</td><td>Manager</td><td>emily@stackly.com</td><td><span class="status-badge status-completed">Active</span></td><td><a href="#" style="color:var(--primary)">Edit</a></td></tr>
+                        <tr><td>Robert Wilson</td><td>Employee</td><td>robert@stackly.com</td><td><span class="status-badge status-pending">Suspended</span></td><td><a href="#" style="color:var(--primary)">Edit</a></td></tr>
+                    </tbody>
+                </table>
+</div>
+            </div>
+            <div class="panel" style="margin-top: 1.5rem;">
+                <div class="panel-header"><h3 class="panel-title">Role Permissions</h3></div>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">Configure access levels for different roles.</p>
+                <div style="display: grid; gap: 1rem;">
+                    <div style="padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+                        <strong style="color: var(--text-main);">Admin</strong> - Full system access
+                    </div>
+                    <div style="padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+                        <strong style="color: var(--text-main);">Manager</strong> - Department level access
+                    </div>
+                    <div style="padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+                        <strong style="color: var(--text-main);">Employee</strong> - Personal data and tasks only
+                    </div>
+                </div>
+            </div>
+        
+                </div>
+
+                <div id="finance-reports" class="content-section">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>Finance & Reports</h1>
+                            <p class="text-muted">Manage your finance & reports settings and data here.</p>
+                        </div>
+                    </div>
+                    
+            <div class="stat-cards" style="margin-bottom: 1.5rem;">
+                <div class="stat-card">
+                    <div class="stat-header"><span>Q3 Revenue</span></div>
+                    <div class="stat-value">$342,000</div>
+                    <div class="stat-trend trend-up">+8% vs Q2</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header"><span>Net Profit</span></div>
+                    <div class="stat-value">$124,500</div>
+                    <div class="stat-trend trend-up">+12% vs Q2</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header"><span>Pending Payables</span></div>
+                    <div class="stat-value">$18,200</div>
+                    <div class="stat-trend trend-down">-5% vs Q2</div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-header"><h3 class="panel-title">Recent Financial Reports</h3></div>
+                <div class="table-responsive">
+<table class="data-table">
+                    <thead><tr><th>Report Name</th><th>Generated By</th><th>Date</th><th>Action</th></tr></thead>
+                    <tbody>
+                        <tr><td>Q3 Financial Summary</td><td>System</td><td>Oct 1, 2026</td><td><button class="btn btn-outline" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;">Download</button></td></tr>
+                        <tr><td>September Expense Report</td><td>Finance Team</td><td>Oct 2, 2026</td><td><button class="btn btn-outline" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;">Download</button></td></tr>
+                        <tr><td>Annual Audit Draft</td><td>External Auditor</td><td>Sep 28, 2026</td><td><button class="btn btn-outline" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;">Download</button></td></tr>
+                        <tr><td>Payroll Summary - Sep</td><td>HR Dept</td><td>Sep 30, 2026</td><td><button class="btn btn-outline" style="padding: 0.2rem 0.5rem; font-size: 0.8rem;">Download</button></td></tr>
+                    </tbody>
+                </table>
+</div>
+            </div>
+        
+                </div>
+
+                <div id="system-settings" class="content-section">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>System Settings</h1>
+                            <p class="text-muted">Manage your system settings settings and data here.</p>
+                        </div>
+                    </div>
+                    
+            <div class="panel">
+                <div class="panel-header"><h3 class="panel-title">General Settings</h3></div>
+                <div style="display: grid; gap: 1.5rem; max-width: 600px;">
+                    <div>
+                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.9rem;">Company Name</label>
+                        <input type="text" value="Stackly ERP" style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: var(--text-main); border-radius: var(--radius-md);" oninput="this.value = this.value.replace(/[0-9]/g, '')">
+                    </div>
+                    <div>
+                        <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.9rem;">Support Email</label>
+                        <input type="email" value="support@stackly.com" style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: var(--text-main); border-radius: var(--radius-md);">
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+                        <div>
+                            <strong style="color: var(--text-main); display: block;">Two-Factor Authentication</strong>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">Require 2FA for all admin accounts</span>
+                        </div>
+                        <label style="position: relative; display: inline-block; width: 40px; height: 24px;">
+                            <input type="checkbox" checked style="opacity: 0; width: 0; height: 0;">
+                            <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--primary); border-radius: 24px;"></span>
+                        </label>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+                        <div>
+                            <strong style="color: var(--text-main); display: block;">Maintenance Mode</strong>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">Disable access for non-admin users</span>
+                        </div>
+                        <label style="position: relative; display: inline-block; width: 40px; height: 24px;">
+                            <input type="checkbox" style="opacity: 0; width: 0; height: 0;">
+                            <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(255,255,255,0.1); border-radius: 24px; border: 1px solid var(--border-color);"></span>
+                        </label>
+                    </div>
+                    <button class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        
+                </div>
+
+                <div id="audit-logs" class="content-section">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>Audit Logs</h1>
+                            <p class="text-muted">Manage your audit logs settings and data here.</p>
+                        </div>
+                    </div>
+                    
+            <div class="panel">
+                <div class="panel-header">
+                    <h3 class="panel-title">System Activity</h3>
+                    <input type="text" placeholder="Search logs..." style="padding: 0.5rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: var(--text-main); border-radius: var(--radius-md);">
+                </div>
+                <div class="table-responsive">
+<table class="data-table">
+                    <thead><tr><th>Timestamp</th><th>User</th><th>Action</th><th>IP Address</th></tr></thead>
+                    <tbody>
+                        <tr><td>2026-10-12 14:32:01</td><td>admin@stackly.com</td><td>Updated system settings</td><td>192.168.1.105</td></tr>
+                        <tr><td>2026-10-12 13:15:22</td><td>manager@stackly.com</td><td>Approved leave request #402</td><td>10.0.0.15</td></tr>
+                        <tr><td>2026-10-12 11:05:44</td><td>system</td><td>Automated database backup</td><td>localhost</td></tr>
+                        <tr><td>2026-10-12 09:45:11</td><td>admin@stackly.com</td><td>Created new user account</td><td>192.168.1.105</td></tr>
+                        <tr><td>2026-10-11 18:20:00</td><td>john@stackly.com</td><td>Failed login attempt</td><td>172.16.254.1</td></tr>
+                        <tr><td>2026-10-11 16:10:33</td><td>jane@stackly.com</td><td>Downloaded payslip</td><td>10.0.0.22</td></tr>
+                    </tbody>
+                </table>
+</div>
+                <div style="margin-top: 1rem; text-align: center;"><a href="#" style="color: var(--primary);">Load More</a></div>
+            </div>
+        
+                </div>
+
+                <div id="integrations" class="content-section">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>Integrations</h1>
+                            <p class="text-muted">Manage your integrations settings and data here.</p>
+                        </div>
+                    </div>
+                    
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+                <div class="panel" style="text-align: center; display: flex; flex-direction: column;">
+                    <div style="width: 60px; height: 60px; background: #E53935; border-radius: 12px; margin: 0 auto 1rem; display:flex; align-items:center; justify-content:center; font-size: 1.5rem; font-weight: bold; color: white; box-shadow: 0 4px 10px rgba(229, 57, 53, 0.3);">G</div>
+                    <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">Google Workspace</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Sync calendar and email for seamless communication.</p>
+                    <button class="btn btn-outline w-full" style="margin-top: auto;">Connected</button>
+                </div>
+                <div class="panel" style="text-align: center; display: flex; flex-direction: column;">
+                    <div style="width: 60px; height: 60px; background: #4A154B; border-radius: 12px; margin: 0 auto 1rem; display:flex; align-items:center; justify-content:center; font-size: 1.5rem; font-weight: bold; color: white; box-shadow: 0 4px 10px rgba(74, 21, 75, 0.3);">S</div>
+                    <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">Slack</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Send automated notifications to specific channels.</p>
+                    <button class="btn btn-primary w-full" style="margin-top: auto;">Connect</button>
+                </div>
+                <div class="panel" style="text-align: center; display: flex; flex-direction: column;">
+                    <div style="width: 60px; height: 60px; background: #FF9900; border-radius: 12px; margin: 0 auto 1rem; display:flex; align-items:center; justify-content:center; font-size: 1.5rem; font-weight: bold; color: white; box-shadow: 0 4px 10px rgba(255, 153, 0, 0.3);">A</div>
+                    <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">AWS S3</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Cloud storage integration for documents and media.</p>
+                    <button class="btn btn-outline w-full" style="margin-top: auto;">Connected</button>
+                </div>
+                <div class="panel" style="text-align: center; display: flex; flex-direction: column;">
+                    <div style="width: 60px; height: 60px; background: #0061FF; border-radius: 12px; margin: 0 auto 1rem; display:flex; align-items:center; justify-content:center; font-size: 1.5rem; font-weight: bold; color: white; box-shadow: 0 4px 10px rgba(0, 97, 255, 0.3);">D</div>
+                    <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">Dropbox</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Alternative cloud storage for file sharing.</p>
+                    <button class="btn btn-primary w-full" style="margin-top: auto;">Connect</button>
+                </div>
+                <div class="panel" style="text-align: center; display: flex; flex-direction: column;">
+                    <div style="width: 60px; height: 60px; background: #635BFF; border-radius: 12px; margin: 0 auto 1rem; display:flex; align-items:center; justify-content:center; font-size: 1.5rem; font-weight: bold; color: white; box-shadow: 0 4px 10px rgba(99, 91, 255, 0.3);">S</div>
+                    <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">Stripe</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Process payments and manage billing securely.</p>
+                    <button class="btn btn-primary w-full" style="margin-top: auto;">Connect</button>
+                </div>
+                <div class="panel" style="text-align: center; display: flex; flex-direction: column;">
+                    <div style="width: 60px; height: 60px; background: #2D8CFF; border-radius: 12px; margin: 0 auto 1rem; display:flex; align-items:center; justify-content:center; font-size: 1.5rem; font-weight: bold; color: white; box-shadow: 0 4px 10px rgba(45, 140, 255, 0.3);">Z</div>
+                    <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">Zoom</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Video conferencing for remote teams and clients.</p>
+                    <button class="btn btn-primary w-full" style="margin-top: auto;">Connect</button>
+                </div>
+            </div>
+        
+                </div>
+</div>
+        </main>
+        
+    </div>
+
+    <script>
+        // Initialize Chart.js
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('revenueChart').getContext('2d');
+            
+            // Gradient for Revenue
+            const gradientPrimary = ctx.createLinearGradient(0, 0, 0, 300);
+            gradientPrimary.addColorStop(0, 'rgba(16, 185, 129, 0.5)');
+            gradientPrimary.addColorStop(1, 'rgba(16, 185, 129, 0.0)');
+            
+            // Gradient for Expenses
+            const gradientSecondary = ctx.createLinearGradient(0, 0, 0, 300);
+            gradientSecondary.addColorStop(0, 'rgba(239, 68, 68, 0.3)');
+            gradientSecondary.addColorStop(1, 'rgba(239, 68, 68, 0.0)');
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                    datasets: [
+                        {
+                            label: 'Revenue',
+                            data: [65000, 72000, 68000, 85000, 92000, 88000, 105000, 110000, 115000, 124563],
+                            borderColor: '#10B981',
+                            backgroundColor: gradientPrimary,
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Expenses',
+                            data: [40000, 42000, 41000, 46000, 48000, 45000, 52000, 51000, 53000, 42150],
+                            borderColor: '#EF4444',
+                            backgroundColor: gradientSecondary,
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#9CA3AF' }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255,255,255,0.05)', drawBorder: false },
+                            ticks: { color: '#9CA3AF' }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255,255,255,0.05)', drawBorder: false },
+                            ticks: { 
+                                color: '#9CA3AF',
+                                callback: function(value) {
+                                    return '$' + value / 1000 + 'k';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="js/auth.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuLinks = document.querySelectorAll('.menu-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            
+            // Handle URL hash on load
+            function handleHashChange() {
+                const hash = window.location.hash || '#dashboard';
+                
+                // Update active link
+                menuLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if(link.getAttribute('href') === hash) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Show corresponding section
+                contentSections.forEach(section => {
+                    section.classList.remove('active-section');
+                });
+                
+                const targetSection = document.querySelector(hash);
+                if(targetSection) {
+                    targetSection.classList.add('active-section');
+                } else {
+                    // Fallback to dashboard
+                    document.getElementById('dashboard').classList.add('active-section');
+                }
+            }
+            
+            window.addEventListener('hashchange', handleHashChange);
+            
+            // Override link clicks
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        // Let hashchange event handle the UI update
+                        // (Browser natively updates URL and fires event)
+                    }
+                });
+            });
+            
+            
+            // Handle clicks on buttons/links inside dashboard body
+            const dashboardBody = document.querySelector('.dashboard-body');
+            if(dashboardBody) {
+                dashboardBody.addEventListener('click', function(e) {
+                    const target = e.target.closest('button, a');
+                    if (target) {
+                        e.preventDefault();
+                        window.location.href = '404.html';
+                    }
+                });
+            }
+
+            
+            // Mobile Sidebar Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const sidebar = document.querySelector('.sidebar');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+            
+            if(mobileMenuBtn && sidebar && sidebarOverlay) {
+                function toggleSidebar() {
+                    sidebar.classList.toggle('show-sidebar');
+                    sidebarOverlay.classList.toggle('show-overlay');
+                }
+                mobileMenuBtn.addEventListener('click', toggleSidebar);
+                sidebarOverlay.addEventListener('click', toggleSidebar);
+                
+                // Close sidebar when clicking a link on mobile
+                const mobileLinks = sidebar.querySelectorAll('.menu-link, .logo');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if(window.innerWidth <= 992) {
+                            toggleSidebar();
+                        }
+                    });
+                });
+            }
+
+            // Trigger once on load
+            handleHashChange();
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = localStorage.getItem('userName');
+            if (userName) {
+                // Update Welcome Message
+                const welcomeMsgs = document.querySelectorAll('.page-title .text-muted');
+                welcomeMsgs.forEach(msg => {
+                    if (msg.innerText.includes('Welcome back')) {
+                        msg.innerText = `Welcome back, ${userName}! Here\'s what\'s happening today.`;
+                    }
+                });
+                
+                // Update Sidebar Profile Name
+                const profileName = document.querySelector('.user-info h4');
+                if (profileName) {
+                    profileName.innerText = userName;
+                }
+                
+                // Update Sidebar Avatar letter
+                const avatar = document.querySelector('.avatar');
+                if (avatar) {
+                    avatar.innerText = userName.charAt(0).toUpperCase();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
