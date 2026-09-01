@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stackly ERP | The Premium Enterprise Operating System</title>
     <meta name="description" content="Stackly is the futuristic ERP SaaS platform designed for modern global enterprises. Streamline finance, HR, and operations today.">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=7">
     <style>
         /* Specific Homepage Styles */
         .hero {
@@ -117,6 +117,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin-top: 3rem;
+            margin-bottom: 4rem;
         }
         .bento-card {
             background: var(--bg-card);
@@ -616,6 +617,170 @@
     </section>
 
 
+
+    <!-- 13. AI Copilot Showcase -->
+    <section class="section container">
+        <div class="feature-row">
+            <div class="feature-visual reveal reveal-left">
+                <img src="assets/img_13.webp" alt="AI Copilot">
+            </div>
+            <div class="reveal reveal-right">
+                <span class="badge">Stackly AI Copilot v2.0</span>
+                <h2 class="mb-4">Chat with your ERP.</h2>
+                <p class="mb-4">Imagine asking your ERP "What was our Q3 revenue in Europe?" and getting an instant, formatted report. Stackly Copilot turns complex data into simple conversations.</p>
+                <a href="404.html" class="btn btn-outline">Meet the Copilot</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. ROI Calculator -->
+    <section class="section container text-center">
+        <div class="glass-panel reveal" style="padding: 4rem 2rem;">
+            <h2>Calculate Your ROI</h2>
+            <p class="mx-auto mt-4 mb-10" style="max-width: 600px;">See how much you could save by consolidating your fragmented tech stack into Stackly.</p>
+            <div class="flex justify-center gap-8 flex-wrap">
+                <div class="p-6" style="background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); border: 1px solid var(--border-color); min-width: 240px;">
+                    <h4 class="text-gradient-primary mb-4" style="font-size: 1.1rem;">Current Spend</h4>
+                    <p class="text-3xl font-bold">$125,000/yr</p>
+                </div>
+                <div class="p-6" style="background: rgba(16,185,129,0.1); border-radius: var(--radius-sm); border: 1px solid var(--primary); min-width: 240px;">
+                    <h4 class="text-gradient-primary mb-4" style="font-size: 1.1rem; color: var(--primary);">Stackly Spend</h4>
+                    <p class="text-3xl font-bold">$45,000/yr</p>
+                </div>
+            </div>
+            <a href="404.html" class="btn btn-primary mt-8">Try Full Calculator</a>
+        </div>
+    </section>
+
+    <!-- 15. Customer Video Testimonials -->
+    <section class="section container">
+        <div class="text-center mb-8 reveal">
+            <h2>Success Stories</h2>
+        </div>
+        <div class="grid grid-cols-3 gap-4">
+            <div class="feature-visual reveal" style="cursor: pointer; position: relative;">
+                <img src="assets/img_14.webp" alt="Video 1" style="border-radius: var(--radius-md);">
+                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3);">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--primary)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+            </div>
+            <div class="feature-visual reveal" style="cursor: pointer; position: relative;">
+                <img src="assets/img_15.webp" alt="Video 2" style="border-radius: var(--radius-md);">
+                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3);">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--primary)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+            </div>
+            <div class="feature-visual reveal" style="cursor: pointer; position: relative;">
+                <img src="assets/img_16.webp" alt="Video 3" style="border-radius: var(--radius-md);">
+                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3);">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--primary)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 17. Deep Integration Ecosystem -->
+    <section class="section container">
+        <div class="text-center mb-8 reveal">
+            <h2 class="text-gradient">Connect Everything</h2>
+            <p>Pre-built integrations with 500+ of your favorite enterprise tools.</p>
+        </div>
+        <style>
+            .integration-card {
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+            .integration-card::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; width: 100%; height: 100%;
+                background: var(--brand-color);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                z-index: 0;
+            }
+            .integration-card:hover {
+                transform: translateY(-5px);
+                border-color: var(--brand-color);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            }
+            .integration-card:hover::before {
+                opacity: 0.1;
+            }
+            .integration-card > * {
+                position: relative;
+                z-index: 1;
+            }
+            .integration-logo {
+                width: 56px;
+                height: 56px;
+                object-fit: contain;
+                filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+                transition: transform 0.3s ease;
+            }
+            .integration-card:hover .integration-logo {
+                transform: scale(1.1);
+            }
+        </style>
+        <div class="grid grid-cols-4" style="gap: 1.5rem; margin-top: 3rem;">
+            <div class="glass-panel text-center p-6 reveal integration-card" style="--brand-color: #00A1E0;">
+                <img src="https://api.iconify.design/logos/salesforce.svg" alt="Salesforce Logo" class="integration-logo mb-4">
+                <h4 style="margin:0">Salesforce</h4>
+            </div>
+            <div class="glass-panel text-center p-6 reveal integration-card" style="--brand-color: #FF9900;">
+                <div class="integration-logo mb-4 flex items-center justify-center" style="background-color: white; border-radius: 8px; padding: 4px;">
+                    <img src="https://api.iconify.design/logos/aws.svg" alt="AWS Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <h4 style="margin:0">AWS</h4>
+            </div>
+            <div class="glass-panel text-center p-6 reveal integration-card" style="--brand-color: #635BFF;">
+                <img src="https://api.iconify.design/logos/stripe.svg" alt="Stripe Logo" class="integration-logo mb-4">
+                <h4 style="margin:0">Stripe</h4>
+            </div>
+            <div class="glass-panel text-center p-6 reveal integration-card" style="--brand-color: #4A154B;">
+                <img src="https://api.iconify.design/logos/slack-icon.svg" alt="Slack Logo" class="integration-logo mb-4">
+                <h4 style="margin:0">Slack</h4>
+            </div>
+            <div class="glass-panel text-center p-6 reveal integration-card" style="--brand-color: #FF7A59;">
+                <img src="https://api.iconify.design/logos/hubspot.svg" alt="HubSpot Logo" class="integration-logo mb-4">
+                <h4 style="margin:0">HubSpot</h4>
+            </div>
+            <div class="glass-panel text-center p-6 reveal integration-card" style="--brand-color: #95BF47;">
+                <img src="https://api.iconify.design/logos/shopify.svg" alt="Shopify Logo" class="integration-logo mb-4">
+                <h4 style="margin:0">Shopify</h4>
+            </div>
+            <div class="glass-panel text-center p-6 reveal integration-card" style="--brand-color: #4285F4;">
+                <img src="https://api.iconify.design/logos/google-cloud.svg" alt="Google Cloud Logo" class="integration-logo mb-4">
+                <h4 style="margin:0">GCP</h4>
+            </div>
+            <div class="glass-panel text-center p-6 reveal integration-card" style="--brand-color: #0078D4;">
+                <img src="https://api.iconify.design/logos/microsoft-azure.svg" alt="Azure Logo" class="integration-logo mb-4">
+                <h4 style="margin:0">Azure</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- 18. Upcoming Webinars -->
+    <section class="section container mb-8">
+        <div class="glass-panel reveal" style="padding: 3rem; background: linear-gradient(135deg, var(--bg-card) 0%, rgba(16,185,129,0.05) 100%);">
+            <div class="flex justify-between items-center flex-wrap gap-4">
+                <div>
+                    <span class="badge mb-2">Live Event</span>
+                    <h3 style="margin-bottom: 0.5rem;">The Future of AI in ERPs</h3>
+                    <p class="text-muted">October 15, 2026 • 10:00 AM PST</p>
+                </div>
+                <a href="404.html" class="btn btn-primary">Register Now</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
                                 <footer class="footer">

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Industry Solutions | Stackly ERP</title>
     <meta name="description" content="Industry-specific ERP configurations for Retail, Healthcare, Logistics, and more.">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=7">
     <style>
         .solutions-hero {
             padding: 12rem 0 6rem;
@@ -72,6 +72,11 @@
         }
         @media (max-width: 768px) {
             .industry-grid { grid-template-columns: 1fr; }
+            .detailed-solution { padding: 4rem 1.5rem !important; }
+            .grid-cols-2 { gap: 3rem !important; direction: ltr !important; }
+            .feature-row { gap: 3rem !important; direction: ltr !important; }
+            .feature-row > *, .grid-cols-2 > * { direction: ltr !important; }
+            section { margin-bottom: 2rem !important; }
         }
     </style>
 </head>
@@ -141,7 +146,7 @@
     </header>
 
     <!-- 2. Industry Cards Grid -->
-    <section class="container">
+    <section class="section container">
         <div class="industry-grid">
             <a href="#retail" class="industry-card reveal" style="text-decoration: none; color: inherit; background: linear-gradient(rgba(10,17,40,0.7), rgba(10,17,40,0.9)), url('assets/img_51.webp') center/cover;">
                 <div class="industry-icon">
@@ -259,7 +264,7 @@
                         <span style="font-size: 1.05rem;">Integrated Student & Parent Portal</span>
                     </li>
                 </ul>
-                <a href="404.html" class="btn btn-primary">Explore Education Solution</a>
+                <a href="404.html" class="btn btn-primary mb-8">Explore Education Solution</a>
             </div>
         </div>
     </section>
@@ -286,6 +291,84 @@
         </div>
     </section>
 
+
+    <!-- 8. Non-Profit & Education Sector -->
+    <section id="nonprofit" class="detailed-solution container text-center">
+        <div class="reveal">
+            <span class="badge">Non-Profit & NGOs</span>
+            <h2 class="mt-4 mb-4">Focus on Your Mission, Not Admin.</h2>
+            <p class="mx-auto" style="max-width: 600px;">Stackly offers specialized fund accounting, grant tracking, and volunteer management modules specifically designed for 501(c)(3) organizations.</p>
+            <div class="flex justify-center gap-4 mt-8">
+                <a href="404.html" class="btn btn-primary">Apply for Non-Profit Discount</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Real Estate & Property Management -->
+    <section id="realestate" class="detailed-solution container">
+        <div class="feature-row">
+            <div class="reveal reveal-left">
+                <span class="badge">Real Estate</span>
+                <h2 class="mb-4">Manage Global Portfolios.</h2>
+                <p>Track lease agreements, automate rent collection, and manage maintenance schedules across thousands of properties globally from a single dashboard.</p>
+            </div>
+            <div class="feature-visual-box reveal reveal-right">
+                <img src="assets/img_27.webp" alt="Property Management">
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Financial Services -->
+    <section id="financial" class="detailed-solution container">
+        <div class="feature-row reverse">
+            <div class="reveal reveal-right">
+                <span class="badge">Financial Services</span>
+                <h2 class="mb-4">Compliance at Scale.</h2>
+                <p>Built for wealth management firms and FinTechs. Manage assets under management (AUM), client portfolios, and adhere to strict SEC/FCA regulations.</p>
+            </div>
+            <div class="feature-visual-box reveal reveal-left">
+                <img src="assets/img_28.webp" alt="Financial Dashboard">
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Migration Services -->
+    <section class="section container text-center border-t">
+        <div class="glass-panel reveal" style="padding: 4rem 2rem;">
+            <h2>Seamless Migration</h2>
+            <p class="mx-auto mt-4 mb-8" style="max-width: 600px;">Scared of switching? Don't be. Our dedicated implementation team handles the heavy lifting, migrating your data from legacy systems like SAP, Oracle, or NetSuite in under 90 days.</p>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <div class="p-4" style="background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); border: 1px solid var(--border-color);"><h4 style="margin:0">1. Data Audit</h4></div>
+                <div class="p-4" style="background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); border: 1px solid var(--border-color);"><h4 style="margin:0">2. Mapping</h4></div>
+                <div class="p-4" style="background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); border: 1px solid var(--border-color);"><h4 style="margin:0">3. Testing</h4></div>
+                <div class="p-4" style="background: rgba(16,185,129,0.1); border-radius: var(--radius-sm); border: 1px solid var(--primary);"><h4 style="margin:0">4. Go Live</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Solution Partner Network -->
+    <section class="section container mb-8">
+        <div class="text-center mb-8 reveal">
+            <h2>Find a Certified Partner</h2>
+            <p>Work with our global network of certified agencies for bespoke implementations.</p>
+        </div>
+        <div class="grid grid-cols-3 gap-4 text-center">
+            <div class="glass-panel p-4 reveal"><h4 class="mb-2">Accenture</h4><p class="text-sm">Global System Integrator</p></div>
+            <div class="glass-panel p-4 reveal"><h4 class="mb-2">Deloitte</h4><p class="text-sm">Financial Transformation</p></div>
+            <div class="glass-panel p-4 reveal"><h4 class="mb-2">Slalom</h4><p class="text-sm">Agile Implementation</p></div>
+        </div>
+    </section>
+
+    <!-- 13. Enterprise Architecture -->
+    <section class="section container text-center mb-8">
+        <div class="reveal">
+            <h2>Technical Architecture</h2>
+            <p class="mb-6">How Stackly fits perfectly into your enterprise IT landscape.</p>
+            <div class="feature-visual-box" style="display: inline-block; max-width: 800px; width: 80%;">
+                <img src="assets/img_29.webp" alt="Architecture Diagram">
+            </div>
+        </div>
+    </section>
 
     <footer class="footer">
         <div class="container">
