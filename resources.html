@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources & Blog | Stackly ERP</title>
     <meta name="description" content="Learn best practices for enterprise operations, finance, and HR.">
-    <link rel="stylesheet" href="css/style.css?v=7">
+    <link rel="stylesheet" href="css/style.css?v=8">
     <style>
         .resources-hero {
             padding: 12rem 0 6rem;
@@ -36,7 +36,7 @@
 
         .featured-post {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr minmax(0, 1fr);
             gap: 3rem;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -101,11 +101,11 @@
         }
 
         @media (max-width: 992px) {
-            .featured-post { grid-template-columns: 1fr; }
+            .featured-post { grid-template-columns: minmax(0, 1fr); }
             .blog-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
-            .blog-grid { grid-template-columns: 1fr; }
+            .blog-grid { grid-template-columns: minmax(0, 1fr); }
             .newsletter-form { flex-direction: column; }
         }
     </style>

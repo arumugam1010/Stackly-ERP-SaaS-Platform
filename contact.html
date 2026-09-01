@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Stackly ERP</title>
     <meta name="description" content="Get in touch with the Stackly sales and support teams.">
-    <link rel="stylesheet" href="css/style.css?v=7">
+    <link rel="stylesheet" href="css/style.css?v=8">
     <style>
         .contact-hero {
             padding: 12rem 0 6rem;
@@ -15,7 +15,7 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr minmax(0, 1fr);
             gap: 4rem;
             margin-bottom: 6rem;
         }
@@ -104,11 +104,11 @@
         }
 
         @media (max-width: 992px) {
-            .contact-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: minmax(0, 1fr); }
             .office-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
-            .office-grid { grid-template-columns: 1fr; }
+            .office-grid { grid-template-columns: minmax(0, 1fr); }
             .contact-info-card { padding: 1.5rem; gap: 1rem; flex-wrap: wrap; }
             .contact-info-card > div { word-break: break-word; min-width: 0; }
             .contact-form { padding: 1.5rem; }

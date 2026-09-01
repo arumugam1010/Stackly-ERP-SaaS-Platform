@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Features | Stackly ERP</title>
     <meta name="description" content="Explore the comprehensive suite of Stackly ERP modules designed for global enterprises.">
-    <link rel="stylesheet" href="css/style.css?v=7">
+    <link rel="stylesheet" href="css/style.css?v=8">
     <style>
         .feature-hero {
             padding: 12rem 0 6rem;
@@ -45,7 +45,7 @@
             padding: 6rem 0;
             border-bottom: 1px solid var(--border-color);
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr minmax(0, 1fr);
             gap: 4rem;
             align-items: center;
         }
@@ -94,7 +94,7 @@
         }
 
         @media (max-width: 992px) {
-            .feature-block { grid-template-columns: 1fr; }
+            .feature-block { grid-template-columns: minmax(0, 1fr); }
             .feature-block.reverse { direction: ltr; }
         }
     </style>

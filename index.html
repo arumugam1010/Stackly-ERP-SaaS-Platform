@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stackly ERP | The Premium Enterprise Operating System</title>
     <meta name="description" content="Stackly is the futuristic ERP SaaS platform designed for modern global enterprises. Streamline finance, HR, and operations today.">
-    <link rel="stylesheet" href="css/style.css?v=7">
+    <link rel="stylesheet" href="css/style.css?v=8">
     <style>
         /* Specific Homepage Styles */
         .hero {
@@ -140,7 +140,7 @@
         /* Feature Sections */
         .feature-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr minmax(0, 1fr);
             gap: 4rem;
             align-items: center;
         }
@@ -207,13 +207,13 @@
         }
 
         @media (max-width: 992px) {
-            .feature-row { grid-template-columns: 1fr; }
-            .bento-grid { grid-template-columns: 1fr; }
+            .feature-row { grid-template-columns: minmax(0, 1fr); }
+            .bento-grid { grid-template-columns: minmax(0, 1fr); }
             .bento-large { grid-column: span 1; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
         @media (max-width: 768px) {
-            .stats-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: minmax(0, 1fr); }
             .stat-value { font-size: 2.5rem; }
         }
     </style>
