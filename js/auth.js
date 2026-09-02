@@ -150,19 +150,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (notFoundBtns) {
         if (isLoggedIn && userRole) {
             notFoundBtns.innerHTML = `
-                <a href="index.html" class="btn btn-outline">
+                <a href="index.html" onclick="window.location.assign('index.html'); return false;" class="btn btn-primary">
                     Return to Home
                 </a>
-                <a href="${userRole}-dashboard.html" class="btn btn-primary">
+                <a href="${userRole}-dashboard.html" onclick="window.location.assign('${userRole}-dashboard.html'); return false;" class="btn btn-outline">
                     Return to Dashboard
                 </a>
             `;
         } else {
             notFoundBtns.innerHTML = `
-                <a href="index.html" class="btn btn-primary">
+                <a href="index.html" onclick="window.location.assign('index.html'); return false;" class="btn btn-primary">
                     Return to Home
                 </a>
-                <a href="login.html" class="btn btn-outline">
+                <a href="login.html" onclick="window.location.assign('login.html'); return false;" class="btn btn-outline">
                     Log In
                 </a>
             `;
